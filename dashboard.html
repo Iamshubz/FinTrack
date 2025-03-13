@@ -1,0 +1,52 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finance Buddy - Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="main-container">
+        <aside class="sidebar">
+            <h2>Profile</h2>
+            <p>User: Shubham</p>
+            <button id="profile-settings">Profile & Settings</button>
+        </aside>
+        <div class="content">
+            <header>
+                <h1>Finance Buddy</h1>
+                <p>Your personal finance tracker</p>
+            </header>
+            <main>
+                <div class="summary">
+                    <div class="card income">
+                        <h3>Total Income</h3>
+                        <p id="total-income">$0</p>
+                    </div>
+                    <div class="card expenses">
+                        <h3>Total Expenses</h3>
+                        <p id="total-expenses">$0</p>
+                    </div>
+                    <div class="card balance">
+                        <h3>Current Balance</h3>
+                        <p id="current-balance">$0</p>
+                    </div>
+                </div>
+                <button id="add-transaction">+ Add Transaction</button>
+                <div class="transaction-list">
+                    <h2>Recent Transactions</h2>
+                    <ul id="transactions"></ul>
+                </div>
+                <div id="analytics-container"></div>
+            </main>
+            <footer>
+                <button id="view-analytics">View Analytics</button>
+                <button id="toggle-dark-mode">Toggle Dark Mode</button>
+            </footer>
+        </div>
+    </div>
+    <script src="scripts.js"></script>
+</body>
+</html>

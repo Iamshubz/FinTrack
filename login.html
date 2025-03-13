@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Login Page</title>
+    <link rel="stylesheet" href="login.css"> <!-- Link to the new CSS file -->
+    
+</head>
+<body>
+    <div class="container">
+        <div class="left-section">
+            <h1 id="typing-text"></h1>
+            <p>Welcome back to the community</p>
+            <form onsubmit="redirectToDashboard(event)">
+                <input type="text" name="mobile" placeholder="Log in with mobile number" required>
+                <input type="text" name="username" placeholder="Username" required>
+                <input type="password" name="password" placeholder="Password" required>
+                <a href="reset-password.html">Forgot Password?</a>
+                <button type="submit" class="btn">Log in</button>
+                <p>Don’t have an account? <a href="signup.html">Sign up</a></p>
+            </form>
+            
+            <script>
+                function redirectToDashboard(event) {
+                    event.preventDefault(); // Prevent form submission
+                    window.location.href = "dashboard.html"; // Redirect to the dashboard page
+                }
+            </script>
+            
+            
+        </div>
+        <div class="right-section">
+            <img src="Image.png" alt="Financial Tracking Illustration" style="display: block; margin: 0 auto; max-width: 100%;">
+            <h2>Take Control of Your Finances – Track, Save, and Grow!</h2>
+            <p>Managing money should be simple and stress-free. FinTrack helps you monitor expenses, set budgets, and analyze spending patterns—all in one place. Start your journey to financial freedom today!</p>
+
+        <!-- <button class="btn">Join Us</button> --> 
+        </div>
+    </div>
+    <script>
+        const text = "Hello!";
+        let index = 0;
+
+        function type() {
+            if (index < text.length) {
+                document.getElementById("typing-text").innerHTML += text.charAt(index);
+                index++;
+                setTimeout(type, 100); // Adjust typing speed here
+            }
+        }
+
+        window.onload = type; // Start typing animation on page load
+    </script>
+</body>
+</html>

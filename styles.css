@@ -1,0 +1,65 @@
+/* styles.css */
+body {
+    background: #f4f4f4;
+    display: flex;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+    transition: background 0.3s ease;
+}
+.main-container {
+    display: flex;
+    width: 100%;
+}
+.sidebar {
+    width: 20%;
+    background: #007bff;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+.content {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+}
+header, footer {
+    background: #fff;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+.summary {
+    display: flex;
+    justify-content: space-around;
+    margin: 30px 0;
+    gap: 20px;
+}
+.card {
+    padding: 15px;
+    border-radius: 10px;
+    width: 30%;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+}
+.income { background: #d4edda; color: #155724; }
+.expenses { background: #f8d7da; color: #721c24; }
+.balance { background: #d1ecf1; color: #0c5460; }
+button {
+    padding: 10px 20px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.transaction-list ul { list-style: none; }
+.transaction-list li {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+.transaction-list li span.remove {
+    color: red;
+    cursor: pointer;
+}
+.dark-mode { background: #2c2c2c; color: #f4f4f4; }
