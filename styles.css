@@ -1,65 +1,397 @@
-/* styles.css */
+/* General Body Styling */
 body {
-    background: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
     display: flex;
     height: 100vh;
-    font-family: Arial, sans-serif;
-    transition: background 0.3s ease;
 }
+
+/* Main Container */
 .main-container {
     display: flex;
     width: 100%;
 }
+
+/* Sidebar Styling */
 .sidebar {
     width: 20%;
     background: #007bff;
     color: #fff;
+    display: flex;
+    flex-direction: column;
     padding: 20px;
+}
+
+.sidebar h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.sidebar nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar nav li {
+    padding: 10px 15px;
+    margin: 8px 0;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.sidebar nav li:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.sidebar-actions {
+    margin-top: auto;
     text-align: center;
 }
+
+.sidebar-actions button {
+    width: 100%;
+    margin-top: 10px;
+    background: #0056b3; /* Darker theme for button */
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.sidebar-actions button:hover {
+    background: #885f21;
+}
+
+/* Content Area */
 .content {
     width: 80%;
     display: flex;
     flex-direction: column;
+    padding: 20px;
 }
-header, footer {
-    background: #fff;
-    padding: 15px;
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #ffffff;
+    padding: 15px 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+header input[type="text"] {
+    width: 60%;
+    padding: 8px 15px;
+    border: 2px solid #ddd;
+    border-radius: 20px;
+}
+
+.dashboard-profile {
+    display: flex;
+    align-items: center;
+    background: #ffffff;
+    padding: 10px;
+    border-radius: 20px;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: background 0.3s ease;
+    gap: 10px;
+}
+
+.dashboard-profile:hover {
+    background: #f0f0f000;
+}
+
+#dashboardProfilePicture {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid #007bff;
+}
+
+#expenseChart {
+    max-width: 400px;
+    max-height: 400px;
+    margin: 10px auto; /* Move graph higher */
+}
+
+.filter-section {
+    margin-top: 10px; /* Move filter category higher */
     text-align: center;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
 }
+
+.analytics-section {
+    margin-top: 30px;
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+}
+
+#monthlyExpenseChart {
+    max-width: 100%;
+    max-height: 400px;
+    margin-top: 20px;
+}
+
+.date {
+    color: #888;
+    font-size: 0.9rem;
+    margin-left: 8px;
+}
+
+/* Summary Cards */
 .summary {
     display: flex;
     justify-content: space-around;
     margin: 30px 0;
     gap: 20px;
 }
+
 .card {
-    padding: 15px;
-    border-radius: 10px;
     width: 30%;
-    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
 }
+
+.balance { background: #d1ecf1; color: #0c5460; }
 .income { background: #d4edda; color: #155724; }
 .expenses { background: #f8d7da; color: #721c24; }
-.balance { background: #d1ecf1; color: #0c5460; }
-button {
-    padding: 10px 20px;
-    background: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+
+/* Transaction Section */
+.transaction-section {
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
 }
-.transaction-list ul { list-style: none; }
+
+.transaction-section input,
+.transaction-section button {
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+}
+
+.transaction-section button {
+    background: #007bff;
+    color: #fff;
+    cursor: pointer;
+    border: none;
+}
+
+.transaction-section button:hover {
+    background: #0056b3;
+}
+
+/* Transaction List */
+.transaction-list {
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+}
+
+.transaction-list ul {
+    list-style: none;
+    padding: 0;
+}
+
 .transaction-list li {
     display: flex;
     justify-content: space-between;
-    padding: 10px;
-    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
 }
-.transaction-list li span.remove {
-    color: red;
+
+/* Footer */
+footer {
+    text-align: center;
+    margin-top: 20px; /* Add space above footer */
+    padding: 10px 0;
+    background: #007bff;
+    color: #fff;
+    border-radius: 10px;
+}
+
+/* Dark Mode */
+body.dark-mode {
+    background: #121212;
+    color: #f4f4f4;
+}
+
+body.dark-mode .content,
+body.dark-mode .transaction-section,
+body.dark-mode .transaction-list,
+body.dark-mode header {
+    background: #1e1e1e;
+    color: #f4f4f4;
+}
+
+body.dark-mode .card {
+    background: #2b2b2b;
+}
+
+body.dark-mode .sidebar {
+    background: #333;
+}
+
+body.dark-mode .sidebar-actions button {
+    background: #17a2b8;
+}
+
+.budget-section {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+    text-align: center;
+}
+
+#saveBudgetBtn {
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
     cursor: pointer;
 }
-.dark-mode { background: #2c2c2c; color: #f4f4f4; }
+
+#saveBudgetBtn:hover {
+    background-color: #45a049;
+}
+
+#alertMessage {
+    background: #ffcccb;
+    color: #d32f2f;
+    text-align: center;
+    padding: 10px;
+    margin-top: 15px;
+    border: 2px solid #d32f2f;
+    border-radius: 5px;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Fix Sidebar Issue */
+.sidebar {
+    position: fixed;
+    height: 100vh;
+    width: 18%;
+}
+
+.content {
+    margin-left: 20%;
+    width: 80%;
+}
+
+.export-section {
+    margin-top: 25px;
+    text-align: center;
+}
+
+#exportDataBtn {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#exportDataBtn:hover {
+    background-color: #b30086;
+}
+
+.category-tag {
+    background-color: #007bff;
+    color: #fff;
+    padding: 2px 8px;
+    border-radius: 5px;
+    font-size: 0.85rem;
+    margin-left: 8px;
+}
+
+/* For Devices Below 768px (Tablets & Mobiles) */
+@media (max-width: 768px) {
+    .main-container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .content {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .summary {
+        flex-direction: column;
+    }
+
+    .card {
+        width: 100%;
+    }
+
+    .profile-container {
+        width: 100%;
+    }
+
+    #dashboardProfilePicture {
+        width: 35px;
+        height: 35px;
+    }
+
+    button {
+        width: 100%;
+    }
+}
+
+/* For Devices Below 480px (Small Screens) */
+@media (max-width: 480px) {
+    .sidebar {
+        padding: 5px;
+    }
+
+    .content {
+        padding: 5px;
+    }
+
+    .dashboard-profile {
+        font-size: 0.9rem;
+    }
+
+    .summary {
+        gap: 10px;
+    }
+
+    .card {
+        padding: 10px;
+    }
+
+    #dashboardProfilePicture {
+        width: 30px;
+        height: 30px;
+    }
+}

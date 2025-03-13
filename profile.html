@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - FinTrack</title>
+    <link rel="stylesheet" href="profile.css">
+</head>
+<body>
+    <div class="profile-container">
+        <div class="profile-card">
+            <img id="profilePicture" src="default-profile.png" alt="Profile Picture">
+            <h2 id="userName">John Doe</h2>
+            <p id="userEmail">johndoe@example.com</p>
+            <p id="userContact">+91 9876543210</p>
+            <p id="userAddress">Aurangabad, Maharashtra, India</p>
+
+            <div class="profile-actions">
+                <button id="editProfileBtn">✏️ Edit Profile</button>
+            </div>
+
+            <!-- Edit Profile Form (Hidden by Default) -->
+            <div id="editProfileForm" class="hidden">
+                <input type="text" id="editName" placeholder="Enter your name">
+                <input type="email" id="editEmail" placeholder="Enter your email">
+                <input type="text" id="editContact" placeholder="Enter your contact number">
+                <input type="text" id="editAddress" placeholder="Enter your address">
+                <input type="file" id="editPicture" accept="image/*">
+                <button id="saveProfileBtn">💾 Save Changes</button>
+            </div>
+
+            <a href="dashboard.html" class="back-btn">⬅️ Back to Dashboard</a>
+        </div>
+    </div>
+
+    <script src="profile.js"></script>
+</body>
+</html>

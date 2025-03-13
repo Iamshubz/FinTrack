@@ -1,52 +1,126 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Finance Buddy - Dashboard</title>
+    <title>FinTrack Dashboard</title>
     <link rel="stylesheet" href="styles.css">
-</head>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+     
+</head >
 <body>
     <div class="main-container">
-        <aside class="sidebar">
-            <h2>Profile</h2>
-            <p>User: Shubham</p>
-            <button id="profile-settings">Profile & Settings</button>
-        </aside>
+
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <h2>FinTrack</h2>
+            <nav>
+                <ul>
+                    <li><span class="icon">🏠</span> Home</li>
+                    <li><span class="icon">💬</span> Message</li>
+                    <li><span class="icon">📊</span> Analytics</li>
+                    <li><span class="icon">💰</span> Transaction</li>
+                    <li><span class="icon">⚙️</span> Setting</li>
+                </ul>
+            </nav>
+            <div class="sidebar-actions">
+                <button id="themeToggle">dark Theme</button>
+                <button id="viewGraph">View Graph</button>
+            </div>
+        </div>
+
+        <!-- Main Content -->
         <div class="content">
             <header>
-                <h1>Finance Buddy</h1>
-                <p>Your personal finance tracker</p>
+                <input type="text" placeholder="Search...">
+         <!-- Profile Section on Dashboard -->
+<div class="dashboard-profile" id="dashboardProfile">
+    <img id="dashboardProfilePicture" src="default-profile.png" alt="Profile Picture">
+    <span id="dashboardUserName">John</span>
+</div>
             </header>
-            <main>
-                <div class="summary">
-                    <div class="card income">
-                        <h3>Total Income</h3>
-                        <p id="total-income">$0</p>
-                    </div>
-                    <div class="card expenses">
-                        <h3>Total Expenses</h3>
-                        <p id="total-expenses">$0</p>
-                    </div>
-                    <div class="card balance">
-                        <h3>Current Balance</h3>
-                        <p id="current-balance">$0</p>
-                    </div>
-                </div>
-                <button id="add-transaction">+ Add Transaction</button>
-                <div class="transaction-list">
-                    <h2>Recent Transactions</h2>
-                    <ul id="transactions"></ul>
-                </div>
-                <div id="analytics-container"></div>
-            </main>
+
+            <!-- Summary Cards -->
+            <div class="summary">
+                <div class="card balance">Total Balance: <span id="totalBalance">$0</span></div>
+                <div class="card income">Total Income: <span id="totalIncome">$0</span></div>
+                <div class="card expenses">Total Expenses: <span id="totalExpenses">$0</span></div>
+            </div>
+
+            <!-- Add Transaction Section (With Category) -->
+<div class="transaction-section">
+    <h3>Add Transaction</h3>
+    <input type="text" id="transactionName" placeholder="Transaction Name">
+    <input type="number" id="transactionAmount" placeholder="Amount">
+    <select id="transactionCategory">
+        <option value="Income">Income</option>
+        <option value="Food">Food</option>
+        <option value="Rent">Rent</option>
+        <option value="Shopping">Shopping</option>
+        <option value="Travel">Travel</option>
+        <option value="Other">Other</option>
+    </select>
+    <button id="addTransaction">Add Transaction</button>
+</div>
+
+<!-- Category Filter Section -->
+<div class="filter-section">
+    <label for="categoryFilter">Filter by Category:</label>
+    <select id="categoryFilter">
+        <option value="All">All</option>
+        <option value="Income">Income</option>
+        <option value="Food">Food</option>
+        <option value="Rent">Rent</option>
+        <option value="Shopping">Shopping</option>
+        <option value="Travel">Travel</option>
+        <option value="Other">Other</option>
+    </select>
+</div>
+
+
+
+            <!-- Recent Transactions -->
+            <div class="transaction-list">
+                <h3>Recent Transactions</h3>
+                <ul id="transactionHistory"></ul>
+            </div>
+            
+            <!-- Monthly Filter Section 
+<div class="filter-section">
+    <label for="monthFilter">Select Month:</label>
+    <input type="month" id="monthFilter">
+</div>
+
+<!-- Chart Container 
+<div class="analytics-section">
+    <canvas id="monthlyExpenseChart"></canvas>
+</div>
+
+ Budget Input Section -->
+<div class="budget-section">
+    <label for="budgetInput">Set Your Budget (₹):</label>
+    <input type="number" id="budgetInput" placeholder="Enter budget limit">
+    <button id="saveBudgetBtn">Save Budget</button>
+</div>
+
+<!-- Alert Message -->
+<div id="alertMessage" class="hidden">
+    ⚠️ Warning: Your expenses have exceeded the budget limit!
+</div>
+
+
+<!-- Export Data Section -->
+<div class="export-section">
+    <button id="exportDataBtn">📥 Export Data (CSV)</button>
+</div>
+
+
             <footer>
-                <button id="view-analytics">View Analytics</button>
-                <button id="toggle-dark-mode">Toggle Dark Mode</button>
+                © 2025 FinTrack. All Rights Reserved.
             </footer>
         </div>
     </div>
-    <script src="scripts.js"></script>
+
+    <script src="script.js"></script>
 </body>
 </html>
