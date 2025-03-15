@@ -6,6 +6,8 @@
     <title>FinTrack Dashboard</title>
     <link rel="stylesheet" href="styles.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="manifest" href="manifest.json">
+
      
 </head >
 <body>
@@ -17,7 +19,7 @@
             <nav>
                 <ul>
                     <li><span class="icon">🏠</span> Home</li>
-                    <li><span class="icon">💬</span> Message</li>
+                    <li><span class="icon">👨‍💻</span> profile</li>
                     <li><span class="icon">📊</span> Analytics</li>
                     <li><span class="icon">💰</span> Transaction</li>
                     <li><span class="icon">⚙️</span> Setting</li>
@@ -36,7 +38,7 @@
          <!-- Profile Section on Dashboard -->
 <div class="dashboard-profile" id="dashboardProfile">
     <img id="dashboardProfilePicture" src="default-profile.png" alt="Profile Picture">
-    <span id="dashboardUserName">John</span>
+    <span id="dashboardUserName">Shubham</span>
 </div>
             </header>
 
@@ -122,5 +124,13 @@
     </div>
 
     <script src="script.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/service-worker.js')
+                .then(() => console.log('Service Worker Registered Successfully!'))
+                .catch(error => console.error('Service Worker Registration Failed:', error));
+        }
+    </script>
+    
 </body>
 </html>
