@@ -7,115 +7,108 @@
     <link rel="stylesheet" href="styles.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="manifest" href="manifest.json">
-
-     
-</head >
+</head>
 <body>
     <div class="main-container">
 
         <!-- Sidebar -->
-        <div class="sidebar">
-            <h2>FinTrack</h2>
-            <nav>
-                <ul>
-                    <li><span class="icon">🏠</span> Home</li>
-                    <li><span class="icon">👨‍💻</span> profile</li>
-                    <li><span class="icon">📊</span> Analytics</li>
-                    <li><span class="icon">💰</span> Transaction</li>
-                    <li><span class="icon">⚙️</span> Setting</li>
-                </ul>
-            </nav>
-            <div class="sidebar-actions">
-                <button id="themeToggle">dark Theme</button>
-                <button id="viewGraph">View Graph</button>
-            </div>
-        </div>
+<div class="sidebar" id="sidebarMenu">
+    <h2>FinTrack</h2>
+    <nav>
+        <ul>
+            <li><a href="dashboard.html"><span class="icon">🏠</span> Home</a></li>
+            <li><a href="profile.html"><span class="icon">👨‍💻</span> Profile</a></li>
+            <li><a href="#"><span class="icon">📊</span> Analytics</a></li>
+            <li><a href="#"><span class="icon">💰</span> Transactions</a></li>
+            <li><a href="#"><span class="icon">⚙️</span> Settings</a></li>
+        </ul>
+    </nav>
+    <div class="sidebar-actions">
+        <button id="themeToggle">Dark Mode</button>
+        <button id="logoutBtn" onclick="logout()">Logout</button>
+    </div>
+</div>
 
+<!-- JavaScript for Logout -->
+<script>
+    function logout() {
+        // Perform any logout logic here (e.g., clearing local storage, session, etc.)
+        localStorage.clear(); // Clear user session data (if stored)
+        sessionStorage.clear(); // Clear session storage
+        window.location.href = "index.html"; // Redirect to index.html
+    }
+</script>
         <!-- Main Content -->
         <div class="content">
             <header>
                 <input type="text" placeholder="Search...">
-         <!-- Profile Section on Dashboard -->
-<div class="dashboard-profile" id="dashboardProfile">
-    <img id="dashboardProfilePicture" src="default-profile.png" alt="Profile Picture">
-    <span id="dashboardUserName">Shubham</span>
-</div>
+                
+                <!-- Profile Section on Dashboard -->
+                <div class="dashboard-profile" id="dashboardProfile">
+                    <img id="dashboardProfilePicture" src="default-profile.png" alt="Profile Picture">
+                    <span id="dashboardUserName">Shubham</span>
+                </div>
             </header>
 
             <!-- Summary Cards -->
             <div class="summary">
-                <div class="card balance">Total Balance: <span id="totalBalance">$0</span></div>
-                <div class="card income">Total Income: <span id="totalIncome">$0</span></div>
-                <div class="card expenses">Total Expenses: <span id="totalExpenses">$0</span></div>
+                <div class="card balance">Total Balance: <span id="totalBalance">₹0</span></div>
+                <div class="card income">Total Income: <span id="totalIncome">₹0</span></div>
+                <div class="card expenses">Total Expenses: <span id="totalExpenses">₹0</span></div>
             </div>
 
             <!-- Add Transaction Section (With Category) -->
-<div class="transaction-section">
-    <h3>Add Transaction</h3>
-    <input type="text" id="transactionName" placeholder="Transaction Name">
-    <input type="number" id="transactionAmount" placeholder="Amount">
-    <select id="transactionCategory">
-        <option value="Income">Income</option>
-        <option value="Food">Food</option>
-        <option value="Rent">Rent</option>
-        <option value="Shopping">Shopping</option>
-        <option value="Travel">Travel</option>
-        <option value="Other">Other</option>
-    </select>
-    <button id="addTransaction">Add Transaction</button>
-</div>
+            <div class="transaction-section">
+                <h3>Add Transaction</h3>
+                <input type="text" id="transactionName" placeholder="Transaction Name">
+                <input type="number" id="transactionAmount" placeholder="Amount">
+                <select id="transactionCategory">
+                    <option value="Income">Income</option>
+                    <option value="Food">Food</option>
+                    <option value="Rent">Rent</option>
+                    <option value="Shopping">Shopping</option>
+                    <option value="Travel">Travel</option>
+                    <option value="Other">Other</option>
+                </select>
+                <button id="addTransaction">Add Transaction</button>
+            </div>
 
-<!-- Category Filter Section -->
-<div class="filter-section">
-    <label for="categoryFilter">Filter by Category:</label>
-    <select id="categoryFilter">
-        <option value="All">All</option>
-        <option value="Income">Income</option>
-        <option value="Food">Food</option>
-        <option value="Rent">Rent</option>
-        <option value="Shopping">Shopping</option>
-        <option value="Travel">Travel</option>
-        <option value="Other">Other</option>
-    </select>
-</div>
-
-
+            <!-- Category Filter Section -->
+            <div class="filter-section">
+                <label for="categoryFilter">Filter by Category:</label>
+                <select id="categoryFilter">
+                    <option value="All">All</option>
+                    <option value="Income">Income</option>
+                    <option value="Food">Food</option>
+                    <option value="Rent">Rent</option>
+                    <option value="Shopping">Shopping</option>
+                    <option value="Travel">Travel</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
 
             <!-- Recent Transactions -->
             <div class="transaction-list">
                 <h3>Recent Transactions</h3>
                 <ul id="transactionHistory"></ul>
             </div>
-            
-            <!-- Monthly Filter Section 
-<div class="filter-section">
-    <label for="monthFilter">Select Month:</label>
-    <input type="month" id="monthFilter">
-</div>
 
-<!-- Chart Container 
-<div class="analytics-section">
-    <canvas id="monthlyExpenseChart"></canvas>
-</div>
+            <!-- Budget Input Section -->
+            <div class="budget-section">
+                <label for="budgetInput">Set Your Budget (₹):</label>
+                <input type="number" id="budgetInput" placeholder="Enter budget limit">
+                <button id="saveBudgetBtn">Save Budget</button>
+            </div>
 
- Budget Input Section -->
-<div class="budget-section">
-    <label for="budgetInput">Set Your Budget (₹):</label>
-    <input type="number" id="budgetInput" placeholder="Enter budget limit">
-    <button id="saveBudgetBtn">Save Budget</button>
-</div>
+            <!-- Alert Message -->
+            <div id="alertMessage" class="hidden">
+                ⚠️ Warning: Your expenses have exceeded the budget limit!
+            </div>
 
-<!-- Alert Message -->
-<div id="alertMessage" class="hidden">
-    ⚠️ Warning: Your expenses have exceeded the budget limit!
-</div>
-
-
-<!-- Export Data Section -->
-<div class="export-section">
-    <button id="exportDataBtn">📥 Export Data (CSV)</button>
-</div>
-
+            <!-- Export Data Section -->
+            <div class="export-section">
+                <button id="exportDataBtn">📥 Export Data (CSV)</button>
+            </div>
 
             <footer>
                 © 2025 FinTrack. All Rights Reserved.
@@ -131,6 +124,6 @@
                 .catch(error => console.error('Service Worker Registration Failed:', error));
         }
     </script>
-    
 </body>
 </html>
+s
