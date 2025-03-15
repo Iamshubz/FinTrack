@@ -224,11 +224,11 @@ header input[type="text"] {
 /* Footer */
 footer {
     text-align: center;
-    margin-top: 20px; /* Add space above footer */
-    padding: 10px 0;
-    background: #007bff;
+    margin-top: 200px; /* Add space above footer */
+    padding: 0px 0;
+    background: #795f2b;
     color: #fff;
-    border-radius: 10px;
+    border-radius: 0px;
 }
 
 /* Dark Mode */
